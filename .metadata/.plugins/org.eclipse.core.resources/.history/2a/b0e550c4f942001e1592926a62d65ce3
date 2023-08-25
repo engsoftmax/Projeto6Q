@@ -1,0 +1,86 @@
+package projetoviq;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
+
+class Pessoa {
+    private String nome;
+    private Date dataNascimento;
+    private double altura;
+
+    public Pessoa(String nome, Date dataNascimento, double altura) {
+        this.nome = nome;
+        this.dataNascimento = dataNascimento;
+        this.altura = altura;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public Date getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public void setDataNascimento(Date dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+
+    public double getAltura() {
+        return altura;
+    }
+
+    public void setAltura(double altura) {
+        this.altura = altura;
+    }
+
+    public int calculaIdade() {
+        Calendar dataNasc = Calendar.getInstance();
+        dataNasc.setTime(dataNascimento);
+
+        Calendar dataAtual = Calendar.getInstance();
+
+        int idade = dataAtual.get(Calendar.YEAR) - dataNasc.get(Calendar.YEAR);
+
+        if (dataAtual.get(Calendar.MONTH) < dataNasc.get(Calendar.MONTH) ||
+            (dataAtual.get(Calendar.MONTH) == dataNasc.get(Calendar.MONTH) &&
+             dataAtual.get(Calendar.DAY_OF_MONTH) < dataNasc.get(Calendar.DAY_OF_MONTH))) {
+            idade--;
+        }
+
+        return idade;
+    }
+
+    public void imprimeDados() {
+        System.out.println("Nome: " + nome);
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        System.out.println("Data de Nascimento: " + sdf.format(dataNascimento));
+        System.out.println("Altura: " + altura + "m");
+        System.out.println("Idade: " + calculaIdade() + " anos");
+    }
+
+
+
+    public static void main(String[] args) throws ParseException {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Digite o nome: ");
+        String nome = scanner.nextLine();
+
+        System.out.print("Digite a data de nascimento (dd/MM/yyyy): ");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        Date dataNascimento = sdf.parse(scanner.nextLine());
+
+        System.out.print("Digite a altura: ");
+        double altura = Double.parseDouble(scanner.nextLine());
+
+        Pessoa pessoa = new Pessoa(nome, dataNascimento, altura);
+
+        pessoa.imprimeDados();
+    }
+}

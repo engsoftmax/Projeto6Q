@@ -1,0 +1,54 @@
+package projetoviq;
+
+import java.time.LocalDate;
+
+public class Pessoa {
+	
+	 private String nome;
+	 private static String dataNascimento;
+	 private double altura;
+	
+	    
+	 
+	 public static void imprimirdados() {
+		 
+	 }
+	 
+	 public static void calculaidade() {
+	
+		String valorStr;
+		if (valorStr.length() >= 4) {
+		    String ultimosQuatroDigitos = valorStr.substring(valorStr.length() - 4);
+			String ultimosQuatroDigitosStr;
+			int ultimosQuatroDigitos1 = Integer.parseInt(ultimosQuatroDigitosStr);
+			int resultado = ultimosQuatroDigitos1 - dataNascimento;
+		    System.out.println(resultado);
+		} else {
+		   System.out.println("O valor não possui 4 dígitos.");
+	    }
+	 }
+		
+		public String getNome() {
+			return nome;
+		}
+
+		public void setNome(String nome) {
+			this.nome = nome;
+		}
+
+		public String getDataNascimento() {
+			return dataNascimento;
+		}
+
+		public void setDataNascimento(String dataNascimento) {
+			this.dataNascimento = dataNascimento;
+		}
+
+		public double getAltura() {
+			return altura;
+		}
+
+		public void setAltura(double altura) {
+			this.altura = altura;
+		}		
+		

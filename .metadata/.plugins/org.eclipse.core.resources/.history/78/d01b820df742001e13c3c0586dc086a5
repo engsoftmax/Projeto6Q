@@ -1,0 +1,77 @@
+package projetoviq;
+
+import java.util.Comparator;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Collections;
+
+class Pessoa {
+    private String nome;
+    private Date dataNascimento;
+    private double altura;
+
+    public Pessoa(String nome, Date dataNascimento, double altura) {
+        this.nome = nome;
+        this.dataNascimento = dataNascimento;
+        this.altura = altura;
+    }
+
+    // Getters e Setters
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public Date getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public void setDataNascimento(Date dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+
+    public double getAltura() {
+        return altura;
+    }
+
+    public void setAltura(double altura) {
+        this.altura = altura;
+    }
+
+    // Método para calcular idade
+    public int calculaIdade() {
+        Date dataAtual = new Date();
+        int idade = dataAtual.getYear() - dataNascimento.getYear();
+        if (dataNascimento.after(new Date(dataAtual.getYear(), dataNascimento.getMonth(), dataNascimento.getDate()))) {
+            idade--;
+        }
+        return idade;
+    }
+
+    // Método para imprimir dados
+    public void imprimeDados() {
+        System.out.println("Nome: " + nome);
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        System.out.println("Data de Nascimento: " + sdf.format(dataNascimento));
+        System.out.println("Altura: " + altura + "m");
+        System.out.println("Idade: " + calculaIdade() + " anos");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Código para criar e manipular objetos Pessoa
+        // Pergunte ao usuário e leia os valores para nome, data de nascimento e altura
+        // ...
+
+        // Exemplo de criação de objeto Pessoa
+        Pessoa pessoa = new Pessoa("Exemplo Pessoa", new Date(1990, 0, 1), 1.75);
+
+        // Chame o método imprimeDados
+        pessoa.imprimeDados();
+    }
+}

@@ -1,0 +1,4 @@
+INDEX VERSION 1.134+C:\Onedrive\maxcontatos\OneDrive\Documentos\NetBeansProjects\ProjetoVIQ\.metadata\.plugins\org.eclipse.jdt.core
+1865797976.index
+3413725848.index
+351184574.index
